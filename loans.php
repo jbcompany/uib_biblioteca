@@ -40,4 +40,4 @@ class LoansService
         return $this->loanDAO->delete($id);
     }
 }
-?>
+

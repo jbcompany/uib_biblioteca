@@ -17,4 +17,3 @@ interface LoanDAO
 
     public function delete(int$id);
 }
-?>

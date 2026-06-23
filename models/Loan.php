@@ -50,7 +50,7 @@ class Loan
     public function getId(): ?int
     {
         return $this->id;
-    }   
+    }
 
     public function setId(?int $id)
     {
@@ -85,7 +85,7 @@ class Loan
     public function setUniversityDegree(?string $universityDegree)
     {
         $this->universityDegree = $universityDegree;
-    } 
+    }
     public function getLoanDate(): ?string
     {
         return $this->loanDate;
@@ -104,4 +104,3 @@ class Loan
     }
 
 }
-?>

@@ -113,7 +113,7 @@ $loans = $LoansService->getAllLoans();
 <body>
     <header>
         <!-- place navbar here -->
-        <?php include 'header.php'; ?>
+        <?php include_once 'header.php'; ?>
     </header>
     <main>
         <div
@@ -278,7 +278,7 @@ $loans = $LoansService->getAllLoans();
 
     <footer>
         <!-- place footer here -->
-        <?php include 'footer.php'; ?>
+        <?php include_once 'footer.php'; ?>
     </footer>
     <!-- Bootstrap JavaScript Bundle (includes Popper) -->
     <script

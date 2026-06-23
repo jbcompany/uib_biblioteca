@@ -108,7 +108,7 @@ $books = $BooksService->getAllBooks();
 <body>
     <header>
         <!-- place navbar here -->
-        <?php include 'header.php'; ?>
+        <?php include_once 'header.php'; ?>
     </header>
     <main>
         <div
@@ -272,14 +272,14 @@ $books = $BooksService->getAllBooks();
 
     <footer>
         <!-- place navbar here -->
-        <?php include 'footer.php'; ?>
+        <?php include_once 'footer.php'; ?>
     </footer>
     <!-- Bootstrap JavaScript Bundle (includes Popper) -->
     <script
         src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
-    
+
     <script>
         // Limpiar parámetro ?status de la URL después de mostrar la alerta
         if (window.location.search.includes('status=')) {

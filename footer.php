@@ -30,7 +30,7 @@
                 <div class="col-2 col-sm-2 col-md-2 col-lg-2">
                     <a href="#" target="_blank">
                         <img src="img/ca-xarxa-grey-xarxa-grey.png" alt="" class="img-fluid" style="max-height: 1550px;">
-                    </a>    
+                    </a>
                 </div>
             </div>
 

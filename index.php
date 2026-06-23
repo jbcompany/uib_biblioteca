@@ -18,22 +18,20 @@
     <body>
         <header>
             <!-- place navbar here -->
-            <?php include 'header.php'; ?>
+            <?php include_once 'header.php'; ?>
         </header>
         <main>
-            <div 
-                class="container-xl border border-1 rounded-3 py-5 my-5" 
+            <div
+                class="container-xl border border-1 rounded-3 py-5 my-5"
                 style="margin-top: 50px; text-align: center;height: 500px;">
                 <div class="card-body">
                     <h1 class="card-title">Bienvenido a la Biblioteca de la UIB</h1>
                     <p class="card-text">Explora nuestra colección de libros y recursos académicos.</p>
-                    
             </div>
-            
         </main>
         <footer>
             <!-- place footer here -->
-            <?php include 'footer.php'; ?>
+            <?php include_once 'footer.php'; ?>
         </footer>
         <!-- Bootstrap JavaScript Bundle (includes Popper) -->
         <script

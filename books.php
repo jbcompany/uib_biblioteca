@@ -40,4 +40,3 @@ class BooksService
         return $this->bookDAO->delete($id);
     }
 }
-?>
