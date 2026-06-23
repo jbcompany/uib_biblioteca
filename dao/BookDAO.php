@@ -8,13 +8,13 @@ require_once __DIR__ . '/../models/Book.php';
 
 interface BookDAO
 {
-    public function findAll();
+    public function findAll(): array;
 
-    public function findById($id);
+    public function findById(int $id);
 
     public function save(Book $book);
 
     public function update(Book $book);
 
-    public function delete($id);
+    public function delete(int $id);
 }

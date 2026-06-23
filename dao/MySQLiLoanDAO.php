@@ -9,14 +9,14 @@ use App\Models\Loan;
 
 class MySQLiLoanDAO implements LoanDAO
 {
-    private $conn;
+    private \mysqli $conn;
 
     public function __construct(\mysqli $conn)
     {
         $this->conn = $conn;
     }
 
-    public function findAll()
+    public function findAll(): array
     {
         $sql = 'SELECT id, user_name, university_degree, book_name, loan_date, return_date FROM loans ORDER BY id DESC';
         $result = $this->conn->query($sql);
@@ -33,7 +33,7 @@ class MySQLiLoanDAO implements LoanDAO
         return $loans;
     }
 
-    public function findById($id)
+    public function findById(int $id)
     {
         $sql = 'SELECT id, user_name, university_degree, book_name, loan_date, return_date FROM loans WHERE id = ?';
         $stmt = $this->conn->prepare($sql);
@@ -52,7 +52,7 @@ class MySQLiLoanDAO implements LoanDAO
         return $row ? Loan::fromArray($row) : null;
     }
 
-    public function save(Loan $loan)
+    public function save(Loan $loan): bool
     {
         $sql = 'INSERT INTO loans (user_name, university_degree, book_name, loan_date, return_date) VALUES (?, ?, ?, ?, ?)';
         $stmt = $this->conn->prepare($sql);
@@ -79,7 +79,7 @@ class MySQLiLoanDAO implements LoanDAO
         return $ok;
     }
 
-    public function update(Loan $loan)
+    public function update(Loan $loan): bool
     {
         $sql = 'UPDATE loans SET user_name = ?, university_degree = ?, book_name = ?, loan_date = ?, return_date = ? WHERE id = ?';
         $stmt = $this->conn->prepare($sql);
@@ -102,7 +102,7 @@ class MySQLiLoanDAO implements LoanDAO
         return $ok;
     }
 
-    public function delete($id)
+    public function delete(int $id): bool
     {
         $sql = 'DELETE FROM loans WHERE id = ?';
         $stmt = $this->conn->prepare($sql);

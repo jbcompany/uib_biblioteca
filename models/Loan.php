@@ -4,15 +4,15 @@ namespace App\Models;
 
 class Loan
 {
-    private $id;
-    private $userName;
-    private $bookName;
-    private $universityDegree;
+    private ?int $id;
+    private ?string $userName;
+    private ?string $bookName;
+    private ?string $universityDegree;
 
-    private $loanDate;
-    private $returnDate;
+    private ?string $loanDate;
+    private ?string $returnDate;
 
-    public function __construct($id = null, $userName = null, $bookName = null, $universityDegree = null, $loanDate = null, $returnDate = null)
+    public function __construct(?int $id = null, ?string $userName = null, ?string $bookName = null, ?string $universityDegree = null, ?string $loanDate = null, ?string $returnDate = null)
     {
         $this->id = $id;
         $this->userName = $userName;
@@ -22,7 +22,7 @@ class Loan
         $this->returnDate = $returnDate;
     }
 
-    public static function fromArray(array $row)
+    public static function fromArray(array $row): self
     {
         return new self(
             isset($row['id']) ? (int) $row['id'] : null,
@@ -34,7 +34,7 @@ class Loan
         );
     }
 
-    public function toArray()
+    public function toArray(): array
     {
         return [
             'id' => $this->id,
@@ -47,58 +47,58 @@ class Loan
     }
 
     // Getters and setters...
-    public function getId()
+    public function getId(): ?int
     {
         return $this->id;
     }   
 
-    public function setId($id)
+    public function setId(?int $id)
     {
         $this->id = $id;
     }
 
-    public function getUserName()
+    public function getUserName(): ?string
     {
         return $this->userName;
     }
 
-    public function setUserName($userName)
+    public function setUserName(?string $userName)
     {
         $this->userName = $userName;
     }
 
-    public function getBookName()
+    public function getBookName(): ?string
     {
         return $this->bookName;
     }
 
-    public function setBookName($bookName)
+    public function setBookName(?string $bookName)
     {
         $this->bookName = $bookName;
     }
 
-    public function getUniversityDegree()
+    public function getUniversityDegree(): ?string
     {
         return $this->universityDegree;
     }
 
-    public function setUniversityDegree($universityDegree)
+    public function setUniversityDegree(?string $universityDegree)
     {
         $this->universityDegree = $universityDegree;
     } 
-    public function getLoanDate()
+    public function getLoanDate(): ?string
     {
         return $this->loanDate;
     }
-    public function setLoanDate($loanDate)
+    public function setLoanDate(?string $loanDate)
     {
         $this->loanDate = $loanDate;
     }
-    public function getReturnDate()
+    public function getReturnDate(): ?string
     {
         return $this->returnDate;
     }
-    public function setReturnDate($returnDate)
+    public function setReturnDate(?string $returnDate)
     {
         $this->returnDate = $returnDate;
     }

@@ -8,7 +8,7 @@ use App\DAO\MySQLiLoanDAO;
 
 class LoansService
 {
-    private $loanDAO;
+    private MySQLiLoanDAO $loanDAO;
 
     public function __construct(\mysqli $conn)
     {
@@ -20,7 +20,7 @@ class LoansService
         return $this->loanDAO->findAll();
     }
 
-    public function getLoanById($id)
+    public function getLoanById(int$id)
     {
         return $this->loanDAO->findById($id);
     }
@@ -35,7 +35,7 @@ class LoansService
         return $this->loanDAO->update($loan);
     }
 
-    public function deleteLoan($id)
+    public function deleteLoan(int $id)
     {
         return $this->loanDAO->delete($id);
     }

@@ -4,14 +4,14 @@ namespace App\Models;
 
 class Book
 {
-    private $id;
-    private $title;
-    private $author;
-    private $publishedYear;
-    private $genre;
-    private $ubication;
+    private ?int $id;
+    private string $title;
+    private string $author;
+    private int $publishedYear;
+    private string $genre;
+    private string $ubication;
 
-    public function __construct($id = null, $title = '', $author = '', $publishedYear = 0, $genre = '', $ubication = '')
+    public function __construct(?int $id = null, string $title = '', string $author = '', int $publishedYear = 0, string $genre = '', string $ubication = '')
     {
         $this->id = $id;
         $this->title = $title;
@@ -21,7 +21,7 @@ class Book
         $this->ubication = $ubication;
     }
 
-    public static function fromArray(array $row)
+    public static function fromArray(array $row): self
     {
         return new self(
             isset($row['id']) ? (int) $row['id'] : null,
@@ -33,7 +33,7 @@ class Book
         );
     }
 
-    public function toArray()
+    public function toArray(): array
     {
         return [
             'id' => $this->id,
@@ -45,63 +45,63 @@ class Book
         ];
     }
 
-    public function getId()
+    public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function setId($id)
+    public function setId(?int $id)
     {
         $this->id = $id;
     }
 
-    public function getTitle()
+    public function getTitle(): string
     {
         return $this->title;
     }
 
-    public function setTitle($title)
+    public function setTitle(string $title)
     {
         $this->title = $title;
     }
-    
 
-    public function getAuthor()
+
+    public function getAuthor(): string
     {
         return $this->author;
     }
 
-    public function setAuthor($author)
+    public function setAuthor(string $author)
     {
         $this->author = $author;
     }
 
-    public function getPublishedYear()
+    public function getPublishedYear(): int
     {
         return $this->publishedYear;
     }
 
-    public function setPublishedYear($publishedYear)
+    public function setPublishedYear(int $publishedYear)
     {
-        $this->publishedYear = (int) $publishedYear;
+        $this->publishedYear = $publishedYear;
     }
 
-    public function getGenre()
+    public function getGenre(): string
     {
         return $this->genre;
     }
 
-    public function setGenre($genre)
+    public function setGenre(string $genre)
     {
         $this->genre = $genre;
     }
 
-    public function getUbication()
+    public function getUbication(): string
     {
         return $this->ubication;
     }
 
-    public function setUbication($ubication)
+    public function setUbication(string $ubication)
     {
         $this->ubication = $ubication;
     }

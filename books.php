@@ -8,7 +8,7 @@ use App\DAO\MySQLiBookDAO;
 
 class BooksService
 {
-    private $bookDAO;
+    private MySQLiBookDAO $bookDAO;
 
     public function __construct(\mysqli $conn)
     {
@@ -20,7 +20,7 @@ class BooksService
         return $this->bookDAO->findAll();
     }
 
-    public function getBookById($id)
+    public function getBookById(int $id)
     {
         return $this->bookDAO->findById($id);
     }
@@ -35,7 +35,7 @@ class BooksService
         return $this->bookDAO->update($book);
     }
 
-    public function deleteBook($id)
+    public function deleteBook(int $id)
     {
         return $this->bookDAO->delete($id);
     }

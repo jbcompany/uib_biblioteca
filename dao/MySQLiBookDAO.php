@@ -9,14 +9,14 @@ use App\Models\Book;
 
 class MySQLiBookDAO implements BookDAO
 {
-    private $conn;
+    private \mysqli $conn;
 
     public function __construct(\mysqli $conn)
     {
         $this->conn = $conn;
     }
 
-    public function findAll()
+    public function findAll(): array
     {
         $sql = 'SELECT id, title, author, published_year, genre, ubication FROM books ORDER BY id DESC';
         $result = $this->conn->query($sql);
@@ -33,7 +33,7 @@ class MySQLiBookDAO implements BookDAO
         return $books;
     }
 
-    public function findById($id)
+    public function findById(int $id)
     {
         $sql = 'SELECT id, title, author, published_year, genre, ubication FROM books WHERE id = ?';
         $stmt = $this->conn->prepare($sql);
@@ -52,7 +52,7 @@ class MySQLiBookDAO implements BookDAO
         return $row ? Book::fromArray($row) : null;
     }
 
-    public function save(Book $book)
+    public function save(Book $book): bool
     {
         $sql = 'INSERT INTO books (title, author, published_year, genre, ubication) VALUES (?, ?, ?, ?, ?)';
         $stmt = $this->conn->prepare($sql);
@@ -79,7 +79,7 @@ class MySQLiBookDAO implements BookDAO
         return $ok;
     }
 
-    public function update(Book $book)
+    public function update(Book $book): bool
     {
         $sql = 'UPDATE books SET title = ?, author = ?, published_year = ?, genre = ?, ubication = ? WHERE id = ?';
         $stmt = $this->conn->prepare($sql);
@@ -102,7 +102,7 @@ class MySQLiBookDAO implements BookDAO
         return $ok;
     }
 
-    public function delete($id)
+    public function delete(int $id): bool
     {
         $sql = 'DELETE FROM books WHERE id = ?';
         $stmt = $this->conn->prepare($sql);
